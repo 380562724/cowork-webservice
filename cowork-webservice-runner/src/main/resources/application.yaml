@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: cowork-webservice-runner
+
+runner:
+  # Reserved configuration block for xxx_service tuning
