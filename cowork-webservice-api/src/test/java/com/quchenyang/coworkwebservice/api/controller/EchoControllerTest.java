@@ -12,13 +12,14 @@ import java.time.format.DateTimeFormatter;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-class EchoControllerTest {
+class
+EchoControllerTest {
 
     @Autowired
     private ApplicationContext context;
 
     @Test
-    void echoReturnsCurrentTimeAsIsoUtcString() {
+    void echoReturnsCurrentTimeAsIsoOffset8String() {
         WebTestClient webTestClient = WebTestClient.bindToApplicationContext(context).build();
 
         webTestClient.get()
@@ -29,7 +30,7 @@ class EchoControllerTest {
                 .value(body -> {
                     assertThat(body).isNotBlank();
                     OffsetDateTime parsed = OffsetDateTime.parse(body, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
-                    assertThat(parsed.getOffset().getTotalSeconds()).isZero();
+                    assertThat(parsed.getOffset().getTotalSeconds()).isEqualTo(8 * 3600);
                 });
     }
 }
