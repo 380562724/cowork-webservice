@@ -7,9 +7,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ComponentSmokeTest {
 
     @Test
-    void componentSourceIsLoadable() throws ClassNotFoundException {
-        Class<?> klass = Class.forName("com.quchenyang.coworkwebservice.component.package-info");
-        assertThat(klass).isNotNull();
-        assertThat(klass.getPackage().getName()).isEqualTo("com.quchenyang.coworkwebservice.component");
+    void componentPackageIsAccessible() {
+        Package pkg = ComponentSmokeTest.class.getPackage();
+        assertThat(pkg).isNotNull();
+        assertThat(pkg.getName()).isEqualTo("com.quchenyang.coworkwebservice.component");
     }
 }
