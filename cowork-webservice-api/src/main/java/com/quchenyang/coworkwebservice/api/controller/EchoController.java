@@ -12,6 +12,12 @@ import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+/**
+ * 回显接口，提供普通与定时推送两种模式。
+ *
+ * @author chenyangqu
+ * @since 2026/06/23
+ */
 @RestController
 @Slf4j
 @RequestMapping("/rest")
